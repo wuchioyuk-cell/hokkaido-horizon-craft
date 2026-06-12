@@ -142,8 +142,8 @@ const zhCN: Dict = {
   "transport.title2": "穿越每一种地形。",
   "transport.body":
     "由高规格丰田阿尔法与海狮组成的专属车队,通过冬季认证,司机们走这些山路远早于第一座缆车。",
-  "transport.stat1Val": "28",
-  "transport.stat1Label": "车队规模",
+  "transport.stat1Val": "10",
+  "transport.stat1Label": "绿牌营运车辆",
   "transport.stat2Val": "12",
   "transport.stat2Label": "可服务语种",
   "transport.stat3Val": "365",
@@ -334,8 +334,8 @@ const zhHK: Dict = {
   "transport.title2": "穿越每一種地形。",
   "transport.body":
     "由高規格 Toyota Alphard 與 Hiace 組成的專屬車隊,通過冬季認證,司機們走這些山路遠早於第一座纜車。",
-  "transport.stat1Val": "28",
-  "transport.stat1Label": "車隊規模",
+  "transport.stat1Val": "10",
+  "transport.stat1Label": "綠牌營運車輛",
   "transport.stat2Val": "12",
   "transport.stat2Label": "可服務語種",
   "transport.stat3Val": "365",
@@ -560,8 +560,8 @@ const en: Dict = {
   "transport.title2": "Across all terrains.",
   "transport.body":
     "A purpose-built fleet of high-spec Toyota Alphards and Hiace vans, winter-rated and chauffeured by drivers who have run these passes since long before the first ski lift.",
-  "transport.stat1Val": "28",
-  "transport.stat1Label": "Vehicles in fleet",
+  "transport.stat1Val": "10",
+  "transport.stat1Label": "Licensed commercial fleet",
   "transport.stat2Val": "12",
   "transport.stat2Label": "Languages spoken",
   "transport.stat3Val": "365",
