@@ -8,31 +8,28 @@ import propertyOtaru from "@/assets/property-otaru.jpg";
 import seasonWinter from "@/assets/season-winter.jpg";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hokkaidō Horizon — Hotels, Private Transit & Curated Journeys" },
+      { title: "Hokkaidō Horizon — 北海道精品酒店 · 私人车队 · 四季体验" },
       {
         name: "description",
         content:
-          "The definitive gateway to Hokkaido. Owned boutique stays, a private Alphard fleet, and local masters of all four seasons — from Niseko to Biei.",
+          "通往北海道的旗舰门户。亲自拥有的精品酒店、私人阿尔法车队,以及深谙四季的本地团队——从二世古到美瑛。",
       },
-      { property: "og:title", content: "Hokkaidō Horizon — In Its Purest Element" },
+      { property: "og:title", content: "Hokkaidō Horizon · 北海道,最本真的模样" },
       {
         property: "og:description",
-        content:
-          "Boutique hotels, private charters, and four-season expeditions across Japan's northern island.",
+        content: "精品酒店、私人包车,以及横跨北海道四季的体验之旅。",
       },
       { property: "og:image", content: heroYotei },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: heroYotei },
     ],
     links: [
-      {
-        rel: "preconnect",
-        href: "https://fonts.googleapis.com",
-      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
         href: "https://fonts.gstatic.com",
@@ -40,97 +37,79 @@ export const Route = createFileRoute("/")({
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Noto+Serif+SC:wght@400;500&family=Noto+Serif+TC:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap",
       },
     ],
   }),
   component: Index,
 });
 
-const pillars = [
-  {
-    num: "01",
-    label: "Stay",
-    title: "Boutique Hotels & Private Chalets",
-    body: "Owned-and-operated properties from the birch forests of Niseko to the stone-walled retreats of Otaru.",
-    to: "/stay" as const,
-  },
-  {
-    num: "02",
-    label: "Travel",
-    title: "The Alphard Fleet",
-    body: "A first-class airline experience on land. Winter-rated, professionally chauffeured, all-island.",
-    to: "/private-charter" as const,
-  },
-  {
-    num: "03",
-    label: "Explore",
-    title: "Private Seasonal Expeditions",
-    body: "Master guides who unlock backcountry powder, summer mist on the calderas, and amber autumn canopies.",
-    to: "/experiences" as const,
-  },
-  {
-    num: "04",
-    label: "Snow",
-    title: "Elite Ski Instruction",
-    body: "Multilingual certified instructors. Powder, backcountry, progression — for soloists and families alike.",
-    to: "/ski-school" as const,
-  },
-];
-
-const properties = [
-  {
-    name: "The Sanctuary Villa",
-    location: "Niseko · Hirafu",
-    season: "Year-round",
-    image: propertySanctuary,
-    rooms: "4 Suites · Private Onsen",
-  },
-  {
-    name: "Asahidake Lodge",
-    location: "Daisetsuzan",
-    season: "Autumn · Winter",
-    image: propertyAsahidake,
-    rooms: "8 Suites · Forest Sauna",
-  },
-  {
-    name: "Otaru Retreat",
-    location: "Otaru Coast",
-    season: "Spring · Autumn",
-    image: propertyOtaru,
-    rooms: "6 Suites · Stone Bath",
-  },
-];
-
-const seasons = [
-  {
-    key: "spring",
-    label: "Spring",
-    title: "The Melting Quiet",
-    copy: "Earth surfaces beneath retreating snow. Cherry begins on the coast while peaks hold their white.",
-  },
-  {
-    key: "summer",
-    label: "Summer",
-    title: "The Long Green Horizon",
-    copy: "Lavender fields, mist-shrouded lakes, and the bright agricultural openness of Biei and Furano.",
-  },
-  {
-    key: "autumn",
-    label: "Autumn",
-    title: "The Amber Canopy",
-    copy: "Maple and birch ignite around volcanic steam. Harvest, hot springs, and the year's clearest light.",
-  },
-  {
-    key: "winter",
-    label: "Winter",
-    title: "The Deepening Dusk",
-    copy: "Witness Hokkaido's transition into absolute white. Architectural silhouettes, world-class powder.",
-  },
-];
-
 function Index() {
-  const [season, setSeason] = useState("winter");
+  const t = useT();
+  const [season, setSeason] = useState<"spring" | "summer" | "autumn" | "winter">("winter");
+
+  const pillars = [
+    {
+      num: "01",
+      label: t("pillar.stay.label"),
+      title: t("pillar.stay.title"),
+      body: t("pillar.stay.body"),
+      to: "/stay" as const,
+    },
+    {
+      num: "02",
+      label: t("pillar.travel.label"),
+      title: t("pillar.travel.title"),
+      body: t("pillar.travel.body"),
+      to: "/private-charter" as const,
+    },
+    {
+      num: "03",
+      label: t("pillar.explore.label"),
+      title: t("pillar.explore.title"),
+      body: t("pillar.explore.body"),
+      to: "/experiences" as const,
+    },
+    {
+      num: "04",
+      label: t("pillar.snow.label"),
+      title: t("pillar.snow.title"),
+      body: t("pillar.snow.body"),
+      to: "/ski-school" as const,
+    },
+  ];
+
+  const properties = [
+    {
+      name: t("property.sanctuary.name"),
+      location: t("property.sanctuary.location"),
+      season: t("estate.season.year"),
+      image: propertySanctuary,
+      rooms: t("property.sanctuary.rooms"),
+    },
+    {
+      name: t("property.asahidake.name"),
+      location: t("property.asahidake.location"),
+      season: t("estate.season.autumnWinter"),
+      image: propertyAsahidake,
+      rooms: t("property.asahidake.rooms"),
+    },
+    {
+      name: t("property.otaru.name"),
+      location: t("property.otaru.location"),
+      season: t("estate.season.springAutumn"),
+      image: propertyOtaru,
+      rooms: t("property.otaru.rooms"),
+    },
+  ];
+
+  const seasons = [
+    { key: "spring" as const, label: t("season.spring.label"), title: t("season.spring.title"), copy: t("season.spring.copy") },
+    { key: "summer" as const, label: t("season.summer.label"), title: t("season.summer.title"), copy: t("season.summer.copy") },
+    { key: "autumn" as const, label: t("season.autumn.label"), title: t("season.autumn.title"), copy: t("season.autumn.copy") },
+    { key: "winter" as const, label: t("season.winter.label"), title: t("season.winter.title"), copy: t("season.winter.copy") },
+  ];
+
   const active = seasons.find((s) => s.key === season) ?? seasons[3];
 
   return (
@@ -141,7 +120,7 @@ function Index() {
       <section className="relative h-[100svh] min-h-[680px] w-full overflow-hidden">
         <img
           src={heroYotei}
-          alt="Mount Yotei dusted with first snow, framed by golden birch leaves at dusk."
+          alt="羊蹄山初雪,金黄白桦林前景"
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
@@ -152,39 +131,42 @@ function Index() {
           <div className="self-end max-w-3xl rise">
             <p className="eyebrow text-birch/80">
               <span className="rule-line bg-birch/80" />
-              Est. on the 43rd parallel
+              {t("hero.eyebrow")}
             </p>
-            <h1 className="mt-6 font-display text-[clamp(2.6rem,7vw,6.5rem)] font-light leading-[1.02] text-birch">
-              Hokkaido in its
+            <h1 className="mt-6 font-display text-[clamp(2.6rem,7vw,6.5rem)] font-light leading-[1.05] text-birch">
+              {t("hero.title1")}
               <br />
-              <span className="italic">purest element.</span>
+              <span className="italic">{t("hero.title2")}</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-birch/85 md:text-lg">
-              The keys to the island's finest stays. The fleet that moves you
-              across its changing terrains. The local hands that unlock its
-              four seasons. End to end — ours.
+              {t("hero.body")}
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/stay" className="hairline-btn-solid bg-birch text-ink border-birch">
-                <span>Experience Stay</span>
+              <Link
+                to="/stay"
+                search={(prev: Record<string, unknown>) => prev}
+                className="hairline-btn-solid bg-birch text-ink border-birch"
+              >
+                <span>{t("hero.cta1")}</span>
               </Link>
               <Link
                 to="/private-charter"
+                search={(prev: Record<string, unknown>) => prev}
                 className="hairline-btn text-birch border-birch/70 hover:bg-birch hover:text-ink"
               >
-                <span>Plan Transit</span>
+                <span>{t("hero.cta2")}</span>
               </Link>
             </div>
           </div>
 
           <div className="mt-12 hidden items-end justify-between text-birch/70 md:flex">
             <p className="max-w-xs text-xs uppercase tracking-[0.28em]">
-              Scroll · 滑り降りる
+              {t("hero.scroll")}
             </p>
             <div className="flex gap-12 text-xs uppercase tracking-[0.22em]">
               <span>43.0°N</span>
               <span>142.0°E</span>
-              <span>Hokkaidō, Japan</span>
+              <span>{t("hero.locationLabel")}</span>
             </div>
           </div>
         </div>
@@ -194,14 +176,15 @@ function Index() {
       <section className="relative -mt-12 px-6 md:px-12">
         <div className="mx-auto max-w-[1400px] border border-ink/15 bg-alpine shadow-[0_30px_80px_-40px_rgba(26,28,30,0.35)]">
           <div className="grid items-center gap-px bg-ink/10 md:grid-cols-[1fr_1fr_1fr_auto]">
-            <ConciergeField label="Where" value="Niseko" hint="Stay" />
-            <ConciergeField label="When" value="Feb 14 — Feb 21" hint="Dates" />
-            <ConciergeField label="Party" value="2 Guests" hint="Composition" />
+            <ConciergeField label={t("concierge.where")} value={t("concierge.whereVal")} hint={t("concierge.whereHint")} />
+            <ConciergeField label={t("concierge.when")} value={t("concierge.whenVal")} hint={t("concierge.whenHint")} />
+            <ConciergeField label={t("concierge.party")} value={t("concierge.partyVal")} hint={t("concierge.partyHint")} />
             <Link
               to="/reconnect"
+              search={(prev: Record<string, unknown>) => prev}
               className="hairline-btn-solid w-full justify-center bg-ink text-birch md:w-auto md:px-10"
             >
-              <span>Begin</span>
+              <span>{t("concierge.begin")}</span>
             </Link>
           </div>
         </div>
@@ -212,25 +195,17 @@ function Index() {
         <div className="mx-auto grid max-w-[1400px] gap-16 md:grid-cols-[1fr_2fr]">
           <p className="eyebrow text-moss">
             <span className="rule-line" />
-            Our Position
+            {t("mission.eyebrow")}
           </p>
           <div>
             <h2 className="font-display text-3xl leading-[1.2] text-ink md:text-5xl">
-              We do not simply book journeys. We{" "}
-              <span className="italic text-moss">own</span> the accommodations,
-              steer the fleet, and guide your path across our home island.
+              {t("mission.titlePre")}{" "}
+              <span className="italic text-moss">{t("mission.titleHighlight")}</span>{" "}
+              {t("mission.titlePost")}
             </h2>
             <div className="mt-12 grid gap-10 text-sm leading-relaxed text-ink/75 md:grid-cols-2">
-              <p>
-                For three decades, the same families and crews have lived these
-                roads. Where mass-market platforms aggregate, we cultivate —
-                one estate, one chauffeur, one mountain at a time.
-              </p>
-              <p>
-                The result is a singular, continuous ecosystem: from the
-                Alphard at New Chitose to the backcountry guide at first light,
-                no handoff is ever to a stranger.
-              </p>
+              <p>{t("mission.body1")}</p>
+              <p>{t("mission.body2")}</p>
             </div>
           </div>
         </div>
@@ -243,16 +218,14 @@ function Index() {
             <div className="max-w-2xl">
               <p className="eyebrow">
                 <span className="rule-line" />
-                Four Pillars
+                {t("pillars.eyebrow")}
               </p>
               <h2 className="mt-5 font-display text-4xl leading-[1.1] md:text-6xl">
-                An island, fully composed.
+                {t("pillars.title")}
               </h2>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-ink/70">
-              Each pillar is owned and operated — never resold, never
-              outsourced. Together they form a single instrument tuned to your
-              stay.
+              {t("pillars.subtitle")}
             </p>
           </div>
 
@@ -261,6 +234,7 @@ function Index() {
               <Link
                 key={p.num}
                 to={p.to}
+                search={(prev: Record<string, unknown>) => prev}
                 className="group relative grid grid-cols-[auto_1fr] gap-6 bg-birch p-10 transition-colors hover:bg-ink hover:text-birch md:p-14"
               >
                 <span className="font-display text-2xl text-moss transition-colors group-hover:text-birch/60">
@@ -270,14 +244,12 @@ function Index() {
                   <p className="eyebrow text-moss transition-colors group-hover:text-birch/60">
                     {p.label}
                   </p>
-                  <h3 className="mt-3 font-display text-3xl md:text-4xl">
-                    {p.title}
-                  </h3>
+                  <h3 className="mt-3 font-display text-3xl md:text-4xl">{p.title}</h3>
                   <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/70 transition-colors group-hover:text-birch/70">
                     {p.body}
                   </p>
                   <p className="mt-8 text-[0.72rem] uppercase tracking-[0.24em]">
-                    Discover →
+                    {t("common.discover")} →
                   </p>
                 </div>
               </Link>
@@ -293,10 +265,10 @@ function Index() {
             <div>
               <p className="eyebrow">
                 <span className="rule-line" />
-                The Four-Season Rule
+                {t("season.eyebrow")}
               </p>
               <h2 className="mt-5 font-display text-4xl leading-[1.1] md:text-6xl">
-                One island, four entirely different countries.
+                {t("season.title")}
               </h2>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -321,7 +293,7 @@ function Index() {
               <img
                 key={season}
                 src={season === "winter" ? seasonWinter : heroYotei}
-                alt="Hokkaido seasonal landscape"
+                alt="北海道四季景观"
                 width={1600}
                 height={1200}
                 loading="lazy"
@@ -340,9 +312,10 @@ function Index() {
               </p>
               <Link
                 to="/experiences"
+                search={(prev: Record<string, unknown>) => prev}
                 className="mt-10 inline-flex w-fit items-center gap-3 border-b border-ink pb-2 text-[0.72rem] uppercase tracking-[0.22em]"
               >
-                See the season's itineraries →
+                {t("season.cta")} →
               </Link>
             </div>
           </div>
@@ -356,17 +329,18 @@ function Index() {
             <div>
               <p className="eyebrow text-birch/60">
                 <span className="rule-line bg-birch/60" />
-                The Estate Register
+                {t("estate.eyebrow")}
               </p>
               <h2 className="mt-5 font-display text-4xl leading-[1.1] md:text-6xl">
-                Three keys, three landscapes.
+                {t("estate.title")}
               </h2>
             </div>
             <Link
               to="/hotels"
+              search={(prev: Record<string, unknown>) => prev}
               className="hairline-btn border-birch/60 text-birch hover:bg-birch hover:text-ink w-fit"
             >
-              <span>All Properties</span>
+              <span>{t("estate.cta")}</span>
             </Link>
           </div>
 
@@ -376,7 +350,7 @@ function Index() {
                 <div className="relative aspect-[4/5] overflow-hidden bg-birch/5">
                   <img
                     src={p.image}
-                    alt={`${p.name} in ${p.location}`}
+                    alt={`${p.name} · ${p.location}`}
                     width={1200}
                     height={1500}
                     loading="lazy"
@@ -391,9 +365,7 @@ function Index() {
                     <p className="text-xs uppercase tracking-[0.22em] text-birch/55">
                       {p.location}
                     </p>
-                    <h3 className="mt-2 font-display text-2xl text-birch">
-                      {p.name}
-                    </h3>
+                    <h3 className="mt-2 font-display text-2xl text-birch">{p.name}</h3>
                     <p className="mt-2 text-sm text-birch/65">{p.rooms}</p>
                   </div>
                   <span className="shrink-0 font-display text-xl text-birch/60 transition-transform duration-500 group-hover:translate-x-1">
@@ -412,7 +384,7 @@ function Index() {
           <div className="relative aspect-[4/3] overflow-hidden bg-silt">
             <img
               src={alphardSnow}
-              alt="A black Toyota Alphard on a snow-covered Hokkaido road"
+              alt="北海道雪路上的黑色丰田阿尔法"
               width={1600}
               height={1200}
               loading="lazy"
@@ -422,37 +394,35 @@ function Index() {
           <div>
             <p className="eyebrow">
               <span className="rule-line" />
-              Movement
+              {t("transport.eyebrow")}
             </p>
             <h2 className="mt-5 font-display text-4xl leading-[1.05] md:text-6xl">
-              First class.
+              {t("transport.title1")}
               <br />
-              <span className="italic text-moss">Across all terrains.</span>
+              <span className="italic text-moss">{t("transport.title2")}</span>
             </h2>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-ink/75">
-              A purpose-built fleet of high-spec Toyota Alphards and Hiace
-              vans, winter-rated and chauffeured by drivers who have run these
-              passes since long before the first ski lift.
+              {t("transport.body")}
             </p>
             <dl className="mt-12 grid grid-cols-2 gap-8 border-t border-ink/15 pt-10">
               {[
-                ["28", "Vehicles in fleet"],
-                ["12", "Languages spoken"],
-                ["365", "Days operating"],
-                ["0", "Subcontractors"],
+                [t("transport.stat1Val"), t("transport.stat1Label")],
+                [t("transport.stat2Val"), t("transport.stat2Label")],
+                [t("transport.stat3Val"), t("transport.stat3Label")],
+                [t("transport.stat4Val"), t("transport.stat4Label")],
               ].map(([n, l]) => (
                 <div key={l}>
-                  <p className="font-display text-4xl text-ink md:text-5xl">
-                    {n}
-                  </p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.22em] text-moss">
-                    {l}
-                  </p>
+                  <p className="font-display text-4xl text-ink md:text-5xl">{n}</p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.22em] text-moss">{l}</p>
                 </div>
               ))}
             </dl>
-            <Link to="/private-charter" className="mt-12 hairline-btn-solid">
-              <span>Reserve the Fleet</span>
+            <Link
+              to="/private-charter"
+              search={(prev: Record<string, unknown>) => prev}
+              className="mt-12 hairline-btn-solid"
+            >
+              <span>{t("transport.cta")}</span>
             </Link>
           </div>
         </div>
@@ -463,14 +433,13 @@ function Index() {
         <div className="mx-auto max-w-4xl text-center">
           <p className="eyebrow">
             <span className="rule-line" />
-            From a guest of three winters
+            {t("testimonial.eyebrow")}
           </p>
           <blockquote className="mt-10 font-display text-3xl leading-[1.3] italic text-ink md:text-5xl">
-            “A flawless ecosystem. From the airport pickup to our backcountry
-            guide, every hand felt like one continuous resort experience.”
+            {t("testimonial.quote")}
           </blockquote>
           <p className="mt-10 text-xs uppercase tracking-[0.22em] text-moss">
-            M. Lindqvist — Stockholm
+            {t("testimonial.author")}
           </p>
         </div>
       </section>
@@ -479,16 +448,24 @@ function Index() {
       <section className="px-6 py-32 md:px-12 md:py-40">
         <div className="mx-auto grid max-w-[1400px] gap-16 border-t border-ink/15 pt-20 md:grid-cols-[2fr_1fr] md:items-end">
           <h2 className="font-display text-4xl leading-[1.05] md:text-7xl">
-            Begin a journey
+            {t("cta.title1")}
             <br />
-            <span className="italic text-moss">on the 43rd parallel.</span>
+            <span className="italic text-moss">{t("cta.title2")}</span>
           </h2>
           <div className="flex flex-col gap-4">
-            <Link to="/reconnect" className="hairline-btn-solid">
-              <span>Speak With a Concierge</span>
+            <Link
+              to="/reconnect"
+              search={(prev: Record<string, unknown>) => prev}
+              className="hairline-btn-solid"
+            >
+              <span>{t("cta.speak")}</span>
             </Link>
-            <Link to="/stay" className="hairline-btn text-ink border-ink/40">
-              <span>Browse the Estate Register</span>
+            <Link
+              to="/stay"
+              search={(prev: Record<string, unknown>) => prev}
+              className="hairline-btn text-ink border-ink/40"
+            >
+              <span>{t("cta.browse")}</span>
             </Link>
           </div>
         </div>

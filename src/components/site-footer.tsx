@@ -1,35 +1,5 @@
 import { Link } from "@tanstack/react-router";
-
-const groups = [
-  {
-    title: "Stay",
-    items: [
-      { label: "Hotels", to: "/hotels" as const },
-      { label: "Vacation Rentals", to: "/vacation-rentals" as const },
-    ],
-  },
-  {
-    title: "Travel",
-    items: [
-      { label: "Private Charter", to: "/private-charter" as const },
-      { label: "Airport Transfers", to: "/airport-transfers" as const },
-    ],
-  },
-  {
-    title: "Explore",
-    items: [
-      { label: "Experiences", to: "/experiences" as const },
-      { label: "Ski School", to: "/ski-school" as const },
-    ],
-  },
-  {
-    title: "House",
-    items: [
-      { label: "Our Story", to: "/our-story" as const },
-      { label: "Reconnect", to: "/reconnect" as const },
-    ],
-  },
-];
+import { useLang, useT } from "@/lib/i18n";
 
 export const LANGUAGES = [
   { code: "ja", label: "日本語" },
@@ -45,6 +15,40 @@ export const LANGUAGES = [
 export type LanguageCode = (typeof LANGUAGES)[number]["code"];
 
 export function SiteFooter() {
+  const t = useT();
+  const currentLang = useLang();
+
+  const groups = [
+    {
+      title: t("footer.group.stay"),
+      items: [
+        { label: t("route.hotels"), to: "/hotels" as const },
+        { label: t("route.vacationRentals"), to: "/vacation-rentals" as const },
+      ],
+    },
+    {
+      title: t("footer.group.travel"),
+      items: [
+        { label: t("route.privateCharter"), to: "/private-charter" as const },
+        { label: t("route.airportTransfers"), to: "/airport-transfers" as const },
+      ],
+    },
+    {
+      title: t("footer.group.explore"),
+      items: [
+        { label: t("route.experiences"), to: "/experiences" as const },
+        { label: t("route.skiSchool"), to: "/ski-school" as const },
+      ],
+    },
+    {
+      title: t("footer.group.house"),
+      items: [
+        { label: t("route.ourStory"), to: "/our-story" as const },
+        { label: t("route.reconnect"), to: "/reconnect" as const },
+      ],
+    },
+  ];
+
   return (
     <footer className="border-t border-ink/15 bg-birch px-6 pt-24 pb-10 md:px-12">
       <div className="mx-auto max-w-[1600px]">
@@ -57,11 +61,10 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-6 max-w-sm font-display text-2xl italic leading-snug text-ink/80">
-              The keys, the fleet, the path — owned, end to end, on a single
-              northern island.
+              {t("footer.tagline")}
             </p>
             <p className="mt-8 text-xs uppercase tracking-[0.22em] text-moss">
-              Sapporo · Niseko · Furano · Biei
+              {t("footer.regions")}
             </p>
           </div>
 
@@ -74,6 +77,7 @@ export function SiteFooter() {
                     <li key={i.to}>
                       <Link
                         to={i.to}
+                        search={(prev: Record<string, unknown>) => prev}
                         className="text-sm text-ink/80 transition-colors hover:text-ink"
                       >
                         {i.label}
@@ -89,28 +93,34 @@ export function SiteFooter() {
         <div className="mt-20 flex flex-col gap-6 border-t border-ink/15 pt-8 md:flex-row md:items-center md:justify-between">
           <div
             className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink/60"
-            aria-label="Language"
+            aria-label={t("common.language")}
           >
-            {LANGUAGES.map((l, i) => (
-              <span key={l.code} className="flex items-center gap-5">
-                {i !== 0 ? <span className="text-ink/20">·</span> : null}
-                <Link
-                  to="."
-                  search={(prev: Record<string, unknown>) => ({
-                    ...prev,
-                    lang: l.code,
-                  })}
-                  data-testid={`lang-${l.code}`}
-                  hrefLang={l.code}
-                  className="transition-colors hover:text-ink"
-                >
-                  {l.label}
-                </Link>
-              </span>
-            ))}
+            {LANGUAGES.map((l, i) => {
+              const isActive = l.code === currentLang;
+              return (
+                <span key={l.code} className="flex items-center gap-5">
+                  {i !== 0 ? <span className="text-ink/20">·</span> : null}
+                  <Link
+                    to="."
+                    search={(prev: Record<string, unknown>) => ({
+                      ...prev,
+                      lang: l.code,
+                    })}
+                    data-testid={`lang-${l.code}`}
+                    hrefLang={l.code}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`transition-colors hover:text-ink ${
+                      isActive ? "text-ink underline underline-offset-4" : ""
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                </span>
+              );
+            })}
           </div>
           <p className="text-xs uppercase tracking-[0.2em] text-ink/50">
-            © {new Date().getFullYear()} Hokkaidō Horizon · All rights observed
+            © {new Date().getFullYear()} {t("common.copyright")}
           </p>
         </div>
       </div>
