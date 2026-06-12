@@ -55,7 +55,7 @@ function Stay() {
             {t("estate.title")}
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/70 md:text-lg">
-            两处位于札幌市中心的居所——从繁华薄野到静谧中岛公园，步行可达地铁与名所。
+            两处位于札幌市中心的居所——从热闹的薄野到安静的中岛公园，地铁步行可达。
           </p>
         </div>
       </section>
@@ -196,10 +196,10 @@ function Stay() {
             直接联系礼宾
           </p>
           <h2 className="mt-6 font-display text-3xl leading-tight md:text-5xl">
-            不确定哪个房型适合您？
+            不确定选哪个房型？
           </h2>
           <p className="mt-6 text-base leading-relaxed text-ink/70">
-            告诉我们日期与人数，礼宾团队将为您推荐最佳房型——通常在数小时内回复。
+            告诉我们日期和人数，礼宾会根据您的需求推荐最适合的房型——通常几小时内回复。
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
