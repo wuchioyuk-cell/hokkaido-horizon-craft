@@ -487,7 +487,7 @@ const en: Dict = {
   "hero.locationLabel": "Hokkaidō, Japan",
 
   "concierge.where": "Where",
-  "concierge.whereVal": "Niseko",
+  "concierge.whereVal": "Sapporo\n",
   "concierge.whereHint": "Stay",
   "concierge.when": "When",
   "concierge.whenVal": "Feb 14 — Feb 21",
@@ -514,7 +514,7 @@ const en: Dict = {
   "pillar.stay.label": "Stay",
   "pillar.stay.title": "Boutique Hotels & Private Chalets",
   "pillar.stay.body":
-    "Owned-and-operated properties from the birch forests of Niseko to the stone-walled retreats of Otaru.",
+    "Owned-and-operated properties from the birch forests of Sapporo\n to the stone-walled retreats of Otaru.",
   "pillar.travel.label": "Travel",
   "pillar.travel.title": "The Alphard Fleet",
   "pillar.travel.body":
@@ -555,7 +555,7 @@ const en: Dict = {
   "estate.season.autumnWinter": "Autumn · Winter",
   "estate.season.springAutumn": "Spring · Autumn",
   "property.sanctuary.name": "The Sanctuary Villa",
-  "property.sanctuary.location": "Niseko · Hirafu",
+  "property.sanctuary.location": "Sapporo\n · Hirafu",
   "property.sanctuary.rooms": "4 Suites · Private Onsen",
   "property.asahidake.name": "Asahidake Lodge",
   "property.asahidake.location": "Daisetsuzan",
@@ -592,7 +592,7 @@ const en: Dict = {
   "stub.stay.eyebrow": "Stay",
   "stub.stay.title": "Boutique hotels & private chalets, end to end.",
   "stub.stay.body":
-    "From the birch-lined suites of Niseko to the stone-walled retreats of Otaru, every property is owned and operated within the house.",
+    "From the birch-lined suites of Sapporo\n to the stone-walled retreats of Otaru, every property is owned and operated within the house.",
   "stub.hotels.eyebrow": "Hotels",
   "stub.hotels.title": "A small register of owned addresses.",
   "stub.hotels.body":
