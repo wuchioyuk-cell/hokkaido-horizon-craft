@@ -38,7 +38,7 @@ const zhCN: Dict = {
 
   "footer.tagline":
     "钥匙、车队、路径——从抵达到离别,皆由我们亲自掌持,一座北方之岛,从头到尾。",
-  "footer.regions": "札幌 · 二世古 · 富良野 · 美瑛",
+  "footer.regions": "札幌 · 小樽 · 洞爷湖 · 富良野 · 美瑛",
   "footer.group.stay": "住宿",
   "footer.group.travel": "出行",
   "footer.group.explore": "探索",
@@ -233,7 +233,7 @@ const zhHK: Dict = {
 
   "footer.tagline":
     "鎖匙、車隊、路徑——由抵達至離別,皆由我們親自掌持,一座北方之島,自始至終。",
-  "footer.regions": "札幌 · 二世古 · 富良野 · 美瑛",
+  "footer.regions": "札幌 · 小樽 · 洞爺湖 · 富良野 · 美瑛",
   "footer.group.stay": "住宿",
   "footer.group.travel": "出行",
   "footer.group.explore": "探索",
@@ -461,7 +461,7 @@ const en: Dict = {
 
   "footer.tagline":
     "The keys, the fleet, the path — owned, end to end, on a single northern island.",
-  "footer.regions": "Sapporo · Niseko · Furano · Biei",
+  "footer.regions": "Sapporo · Otaru · Lake Toya · Furano · Biei",
   "footer.group.stay": "Stay",
   "footer.group.travel": "Travel",
   "footer.group.explore": "Explore",
