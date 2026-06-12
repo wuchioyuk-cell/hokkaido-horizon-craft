@@ -31,16 +31,18 @@ const groups = [
   },
 ];
 
-const languages = [
-  "日本語",
-  "English",
-  "简体中文",
-  "繁體中文（香港）",
-  "繁體中文（台灣）",
-  "ไทย",
-  "Tiếng Việt",
-  "Español",
-];
+export const LANGUAGES = [
+  { code: "ja", label: "日本語" },
+  { code: "en", label: "English" },
+  { code: "zh-cn", label: "简体中文" },
+  { code: "zh-hk", label: "繁體中文（香港）" },
+  { code: "zh-tw", label: "繁體中文（台灣）" },
+  { code: "th", label: "ไทย" },
+  { code: "vi", label: "Tiếng Việt" },
+  { code: "es", label: "Español" },
+] as const;
+
+export type LanguageCode = (typeof LANGUAGES)[number]["code"];
 
 export function SiteFooter() {
   return (
@@ -85,11 +87,25 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-20 flex flex-col gap-6 border-t border-ink/15 pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink/60">
-            {languages.map((l, i) => (
-              <span key={l} className="flex items-center gap-5">
+          <div
+            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink/60"
+            aria-label="Language"
+          >
+            {LANGUAGES.map((l, i) => (
+              <span key={l.code} className="flex items-center gap-5">
                 {i !== 0 ? <span className="text-ink/20">·</span> : null}
-                <button className="transition-colors hover:text-ink">{l}</button>
+                <Link
+                  to="."
+                  search={(prev: Record<string, unknown>) => ({
+                    ...prev,
+                    lang: l.code,
+                  })}
+                  data-testid={`lang-${l.code}`}
+                  hrefLang={l.code}
+                  className="transition-colors hover:text-ink"
+                >
+                  {l.label}
+                </Link>
               </span>
             ))}
           </div>
