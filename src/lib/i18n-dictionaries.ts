@@ -21,7 +21,7 @@ type Dict = Record<string, string>;
 const zhCN: Dict = {
   "common.inquiry": "预约咨询",
   "common.menu": "菜单",
-  "common.speakConcierge": "联系礼宾",
+  "common.speakConcierge": "联系客服",
   "common.returnHome": "返回首页",
   "common.discover": "了解详情",
   "common.browseRegister": "浏览庄园名录",
@@ -162,7 +162,7 @@ const zhCN: Dict = {
 
   "cta.title1": "在北纬四十三度",
   "cta.title2": "开启一段旅程。",
-  "cta.speak": "与礼宾对话",
+  "cta.speak": "与客服对话",
   "cta.browse": "浏览庄园名录",
 
   // Sub-route stubs
@@ -216,7 +216,7 @@ const zhCN: Dict = {
 const zhHK: Dict = {
   "common.inquiry": "預約查詢",
   "common.menu": "選單",
-  "common.speakConcierge": "聯絡禮賓",
+  "common.speakConcierge": "聯絡客服",
   "common.returnHome": "返回首頁",
   "common.discover": "了解詳情",
   "common.browseRegister": "瀏覽莊園名錄",
@@ -357,7 +357,7 @@ const zhHK: Dict = {
 
   "cta.title1": "於北緯四十三度",
   "cta.title2": "開啟一段旅程。",
-  "cta.speak": "與禮賓對話",
+  "cta.speak": "與客服對話",
   "cta.browse": "瀏覽莊園名錄",
 
   "stub.stay.eyebrow": "住宿",
@@ -411,7 +411,7 @@ const zhTW: Dict = {
   ...zhHK,
   "common.inquiry": "預約洽詢",
   "common.menu": "選單",
-  "common.speakConcierge": "聯繫禮賓",
+  "common.speakConcierge": "聯繫客服",
   "common.returnHome": "返回首頁",
   "common.comingSoonNote":
     "此章節正在編撰中。我們的禮賓團隊已掌握全部細節——歡迎直接與我們聯繫。",
