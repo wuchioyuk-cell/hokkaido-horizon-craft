@@ -1,17 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-
-const nav = [
-  { label: "Stay", to: "/stay" as const },
-  { label: "Travel", to: "/travel" as const },
-  { label: "Explore", to: "/explore" as const },
-  { label: "Ski", to: "/ski-school" as const },
-  { label: "Our Story", to: "/our-story" as const },
-];
+import { useT } from "@/lib/i18n";
 
 export function SiteHeader() {
+  const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const nav = [
+    { label: t("nav.stay"), to: "/stay" as const },
+    { label: t("nav.travel"), to: "/travel" as const },
+    { label: t("nav.explore"), to: "/explore" as const },
+    { label: t("nav.ski"), to: "/ski-school" as const },
+    { label: t("nav.ourStory"), to: "/our-story" as const },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -29,7 +31,11 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto grid max-w-[1600px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 py-5 md:px-12">
-        <Link to="/" className="group flex items-center gap-2.5">
+        <Link
+          to="/"
+          search={(prev: Record<string, unknown>) => prev}
+          className="group flex items-center gap-2.5"
+        >
           <span className="block h-2 w-2 rounded-full bg-ink transition-transform duration-500 group-hover:scale-150" />
           <span className="font-display text-xl tracking-tight text-ink">
             Hokkaidō Horizon
@@ -41,6 +47,7 @@ export function SiteHeader() {
             <Link
               key={item.to}
               to={item.to}
+              search={(prev: Record<string, unknown>) => prev}
               className="text-[0.72rem] uppercase tracking-[0.22em] text-ink/70 transition-colors hover:text-ink"
               activeProps={{ className: "text-ink" }}
             >
@@ -50,21 +57,16 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            className="hidden items-center gap-2 border-b border-ink/30 pb-1 text-[0.7rem] uppercase tracking-[0.22em] text-ink/80 transition-colors hover:text-ink md:inline-flex"
-          >
-            EN <span className="text-ink/30">/</span> USD
-          </button>
           <Link
             to="/reconnect"
+            search={(prev: Record<string, unknown>) => prev}
             className="hidden hairline-btn-solid md:inline-flex"
           >
-            <span>Inquiry</span>
+            <span>{t("common.inquiry")}</span>
           </Link>
           <button
             type="button"
-            aria-label="Menu"
+            aria-label={t("common.menu")}
             onClick={() => setOpen((v) => !v)}
             className="grid h-10 w-10 place-items-center lg:hidden"
           >
@@ -83,6 +85,7 @@ export function SiteHeader() {
               <Link
                 key={item.to}
                 to={item.to}
+                search={(prev: Record<string, unknown>) => prev}
                 onClick={() => setOpen(false)}
                 className="font-display text-3xl text-ink"
               >
@@ -91,10 +94,11 @@ export function SiteHeader() {
             ))}
             <Link
               to="/reconnect"
+              search={(prev: Record<string, unknown>) => prev}
               onClick={() => setOpen(false)}
               className="mt-4 hairline-btn-solid w-fit"
             >
-              <span>Inquiry</span>
+              <span>{t("common.inquiry")}</span>
             </Link>
           </nav>
         </div>
