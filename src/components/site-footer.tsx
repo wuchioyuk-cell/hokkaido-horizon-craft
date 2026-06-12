@@ -31,7 +31,16 @@ const groups = [
   },
 ];
 
-const languages = ["日本語", "English", "繁體中文", "ไทย", "Tiếng Việt", "Español"];
+const languages = [
+  "日本語",
+  "English",
+  "简体中文",
+  "繁體中文（香港）",
+  "繁體中文（台灣）",
+  "ไทย",
+  "Tiếng Việt",
+  "Español",
+];
 
 export function SiteFooter() {
   return (
