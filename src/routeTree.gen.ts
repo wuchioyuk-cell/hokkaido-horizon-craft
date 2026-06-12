@@ -9,8 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VacationRentalsRouteImport } from './routes/vacation-rentals'
+import { Route as TravelRouteImport } from './routes/travel'
+import { Route as StayRouteImport } from './routes/stay'
+import { Route as SkiSchoolRouteImport } from './routes/ski-school'
+import { Route as ReconnectRouteImport } from './routes/reconnect'
+import { Route as PrivateCharterRouteImport } from './routes/private-charter'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as HotelsRouteImport } from './routes/hotels'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as ExperiencesRouteImport } from './routes/experiences'
+import { Route as AirportTransfersRouteImport } from './routes/airport-transfers'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VacationRentalsRoute = VacationRentalsRouteImport.update({
+  id: '/vacation-rentals',
+  path: '/vacation-rentals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TravelRoute = TravelRouteImport.update({
+  id: '/travel',
+  path: '/travel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StayRoute = StayRouteImport.update({
+  id: '/stay',
+  path: '/stay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkiSchoolRoute = SkiSchoolRouteImport.update({
+  id: '/ski-school',
+  path: '/ski-school',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReconnectRoute = ReconnectRouteImport.update({
+  id: '/reconnect',
+  path: '/reconnect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivateCharterRoute = PrivateCharterRouteImport.update({
+  id: '/private-charter',
+  path: '/private-charter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HotelsRoute = HotelsRouteImport.update({
+  id: '/hotels',
+  path: '/hotels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperiencesRoute = ExperiencesRouteImport.update({
+  id: '/experiences',
+  path: '/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AirportTransfersRoute = AirportTransfersRouteImport.update({
+  id: '/airport-transfers',
+  path: '/airport-transfers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +85,186 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/airport-transfers': typeof AirportTransfersRoute
+  '/experiences': typeof ExperiencesRoute
+  '/explore': typeof ExploreRoute
+  '/hotels': typeof HotelsRoute
+  '/our-story': typeof OurStoryRoute
+  '/private-charter': typeof PrivateCharterRoute
+  '/reconnect': typeof ReconnectRoute
+  '/ski-school': typeof SkiSchoolRoute
+  '/stay': typeof StayRoute
+  '/travel': typeof TravelRoute
+  '/vacation-rentals': typeof VacationRentalsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/airport-transfers': typeof AirportTransfersRoute
+  '/experiences': typeof ExperiencesRoute
+  '/explore': typeof ExploreRoute
+  '/hotels': typeof HotelsRoute
+  '/our-story': typeof OurStoryRoute
+  '/private-charter': typeof PrivateCharterRoute
+  '/reconnect': typeof ReconnectRoute
+  '/ski-school': typeof SkiSchoolRoute
+  '/stay': typeof StayRoute
+  '/travel': typeof TravelRoute
+  '/vacation-rentals': typeof VacationRentalsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/airport-transfers': typeof AirportTransfersRoute
+  '/experiences': typeof ExperiencesRoute
+  '/explore': typeof ExploreRoute
+  '/hotels': typeof HotelsRoute
+  '/our-story': typeof OurStoryRoute
+  '/private-charter': typeof PrivateCharterRoute
+  '/reconnect': typeof ReconnectRoute
+  '/ski-school': typeof SkiSchoolRoute
+  '/stay': typeof StayRoute
+  '/travel': typeof TravelRoute
+  '/vacation-rentals': typeof VacationRentalsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/airport-transfers'
+    | '/experiences'
+    | '/explore'
+    | '/hotels'
+    | '/our-story'
+    | '/private-charter'
+    | '/reconnect'
+    | '/ski-school'
+    | '/stay'
+    | '/travel'
+    | '/vacation-rentals'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/airport-transfers'
+    | '/experiences'
+    | '/explore'
+    | '/hotels'
+    | '/our-story'
+    | '/private-charter'
+    | '/reconnect'
+    | '/ski-school'
+    | '/stay'
+    | '/travel'
+    | '/vacation-rentals'
+  id:
+    | '__root__'
+    | '/'
+    | '/airport-transfers'
+    | '/experiences'
+    | '/explore'
+    | '/hotels'
+    | '/our-story'
+    | '/private-charter'
+    | '/reconnect'
+    | '/ski-school'
+    | '/stay'
+    | '/travel'
+    | '/vacation-rentals'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AirportTransfersRoute: typeof AirportTransfersRoute
+  ExperiencesRoute: typeof ExperiencesRoute
+  ExploreRoute: typeof ExploreRoute
+  HotelsRoute: typeof HotelsRoute
+  OurStoryRoute: typeof OurStoryRoute
+  PrivateCharterRoute: typeof PrivateCharterRoute
+  ReconnectRoute: typeof ReconnectRoute
+  SkiSchoolRoute: typeof SkiSchoolRoute
+  StayRoute: typeof StayRoute
+  TravelRoute: typeof TravelRoute
+  VacationRentalsRoute: typeof VacationRentalsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vacation-rentals': {
+      id: '/vacation-rentals'
+      path: '/vacation-rentals'
+      fullPath: '/vacation-rentals'
+      preLoaderRoute: typeof VacationRentalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/travel': {
+      id: '/travel'
+      path: '/travel'
+      fullPath: '/travel'
+      preLoaderRoute: typeof TravelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stay': {
+      id: '/stay'
+      path: '/stay'
+      fullPath: '/stay'
+      preLoaderRoute: typeof StayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ski-school': {
+      id: '/ski-school'
+      path: '/ski-school'
+      fullPath: '/ski-school'
+      preLoaderRoute: typeof SkiSchoolRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reconnect': {
+      id: '/reconnect'
+      path: '/reconnect'
+      fullPath: '/reconnect'
+      preLoaderRoute: typeof ReconnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/private-charter': {
+      id: '/private-charter'
+      path: '/private-charter'
+      fullPath: '/private-charter'
+      preLoaderRoute: typeof PrivateCharterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hotels': {
+      id: '/hotels'
+      path: '/hotels'
+      fullPath: '/hotels'
+      preLoaderRoute: typeof HotelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiences': {
+      id: '/experiences'
+      path: '/experiences'
+      fullPath: '/experiences'
+      preLoaderRoute: typeof ExperiencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/airport-transfers': {
+      id: '/airport-transfers'
+      path: '/airport-transfers'
+      fullPath: '/airport-transfers'
+      preLoaderRoute: typeof AirportTransfersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +277,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AirportTransfersRoute: AirportTransfersRoute,
+  ExperiencesRoute: ExperiencesRoute,
+  ExploreRoute: ExploreRoute,
+  HotelsRoute: HotelsRoute,
+  OurStoryRoute: OurStoryRoute,
+  PrivateCharterRoute: PrivateCharterRoute,
+  ReconnectRoute: ReconnectRoute,
+  SkiSchoolRoute: SkiSchoolRoute,
+  StayRoute: StayRoute,
+  TravelRoute: TravelRoute,
+  VacationRentalsRoute: VacationRentalsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
