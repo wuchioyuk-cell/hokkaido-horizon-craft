@@ -461,7 +461,7 @@ const en: Dict = {
 
   "footer.tagline":
     "The keys, the fleet, the path — owned, end to end, on a single northern island.",
-  "footer.regions": "Sapporo · Niseko · Furano · Biei",
+  "footer.regions": "Sapporo · Otaru · Lake Toya · Furano · Biei",
   "footer.group.stay": "Stay",
   "footer.group.travel": "Travel",
   "footer.group.explore": "Explore",
