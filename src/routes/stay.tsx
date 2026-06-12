@@ -18,24 +18,27 @@ export const Route = createFileRoute("/stay")({
   component: Stay,
 });
 
-const CONTACT_URL = "https://wa.me/818000000000"; // TODO: replace with your WhatsApp
+const CONTACT_EMAIL = "jone180312@gmail.com";
 
 function Stay() {
   const t = useT();
 
   const orientalRooms = [
-    { key: "tripleKitchen", count: 1, guests: 3 },
-    { key: "tripleKing", count: 2, guests: 3 },
-    { key: "japaneseTriple", count: 1, guests: 3 },
-    { key: "deluxeDouble", count: 1, guests: 2 },
-    { key: "standardDouble", count: 29, guests: 2 },
+    { key: "tripleKitchen", guests: 3 },
+    { key: "tripleKing", guests: 3 },
+    { key: "japaneseTriple", guests: 3 },
+    { key: "deluxeDouble", guests: 2 },
+    { key: "standardDouble", guests: 2 },
   ];
 
   const shinkaRooms = [
-    { key: "smallDouble", count: 5, guests: 2 },
-    { key: "largeDouble", count: 9, guests: 2 },
-    { key: "single", count: 1, guests: 1 },
+    { key: "smallDouble", guests: 2 },
+    { key: "largeDouble", guests: 2 },
+    { key: "single", guests: 1 },
   ];
+
+  const mailto = (hotel: string, room: string) =>
+    `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`房型咨询：${hotel} — ${room}`)}&body=${encodeURIComponent("您好，我对以下房型感兴趣：\n\n酒店：")}`;
 
   return (
     <div className="min-h-screen bg-birch text-ink">
@@ -100,12 +103,13 @@ function Stay() {
                       </div>
                       <div className="flex shrink-0 items-center gap-4 text-right">
                         <span className="text-xs uppercase tracking-[0.18em] text-moss">
-                          {r.count} {t("room.label.rooms")} · {r.guests} {t("room.label.guests")}
+                          {`${t("room.label.guestsPrefix")}${r.guests}${t("room.label.guests")}`}
                         </span>
                         <a
-                          href={`${CONTACT_URL}?text=${encodeURIComponent(`咨询 ${t(`property.oriental.name`)} — ${t(`room.oriental.${r.key}`)}`)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href={mailto(
+                            t("property.oriental.name"),
+                            t(`room.oriental.${r.key}`),
+                          )}
                           className="hairline-btn-solid shrink-0 text-xs"
                         >
                           <span>{t("room.cta")}</span>
@@ -124,7 +128,7 @@ function Stay() {
       <section className="bg-silt/40 px-6 py-20 md:px-12 md:py-32">
         <div className="mx-auto max-w-[1400px]">
           <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
-            {/* Hotel info (reversed: text first on desktop) */}
+            {/* Hotel info */}
             <div className="flex flex-col justify-center lg:order-2">
               <p className="text-xs uppercase tracking-[0.22em] text-moss">
                 {t("property.shinka.location")}
@@ -152,12 +156,13 @@ function Stay() {
                       </div>
                       <div className="flex shrink-0 items-center gap-4 text-right">
                         <span className="text-xs uppercase tracking-[0.18em] text-moss">
-                          {r.count} {t("room.label.rooms")} · {r.guests} {t("room.label.guests")}
+                          {`${t("room.label.guestsPrefix")}${r.guests}${t("room.label.guests")}`}
                         </span>
                         <a
-                          href={`${CONTACT_URL}?text=${encodeURIComponent(`咨询 ${t(`property.shinka.name`)} — ${t(`room.shinka.${r.key}`)}`)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          href={mailto(
+                            t("property.shinka.name"),
+                            t(`room.shinka.${r.key}`),
+                          )}
                           className="hairline-btn-solid shrink-0 text-xs"
                         >
                           <span>{t("room.cta")}</span>
@@ -198,12 +203,10 @@ function Stay() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
-              href={CONTACT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("住宿咨询")}`}
               className="hairline-btn-solid"
             >
-              <span>WhatsApp 咨询</span>
+              <span>邮件咨询</span>
             </a>
             <Link
               to="/reconnect"

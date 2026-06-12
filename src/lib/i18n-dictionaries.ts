@@ -158,8 +158,8 @@ const zhCN: Dict = {
   "room.shinka.single": "单人房",
   "room.shinka.single.desc": "1 张单人床 · 独自旅行首选",
 
-  "room.label.rooms": "间",
   "room.label.guests": "人入住",
+  "room.label.guestsPrefix": "最多",
   "room.label.price": "价格请咨询礼宾",
   "room.cta": "咨询空房与价格",
   "room.features": "设施亮点",
@@ -376,8 +376,8 @@ const zhHK: Dict = {
   "room.shinka.single": "單人房",
   "room.shinka.single.desc": "1 張單人床 · 獨自旅行首選",
 
-  "room.label.rooms": "間",
   "room.label.guests": "人入住",
+  "room.label.guestsPrefix": "最多",
   "room.label.price": "價格請諮詢禮賓",
   "room.cta": "查詢空房與價格",
   "room.features": "設施亮點",
@@ -628,8 +628,8 @@ const en: Dict = {
   "room.shinka.single": "Single Room",
   "room.shinka.single.desc": "1 Single Bed · Solo Traveler's Choice",
 
-  "room.label.rooms": "rooms",
-  "room.label.guests": "guests",
+  "room.label.guests": " guests",
+  "room.label.guestsPrefix": "Max",
   "room.label.price": "Contact concierge for rates",
   "room.cta": "Check Availability & Rates",
   "room.features": "Highlights",
