@@ -233,7 +233,7 @@ const zhHK: Dict = {
 
   "footer.tagline":
     "鎖匙、車隊、路徑——由抵達至離別,皆由我們親自掌持,一座北方之島,自始至終。",
-  "footer.regions": "札幌 · 二世古 · 富良野 · 美瑛",
+  "footer.regions": "札幌 · 小樽 · 洞爺湖 · 富良野 · 美瑛",
   "footer.group.stay": "住宿",
   "footer.group.travel": "出行",
   "footer.group.explore": "探索",
