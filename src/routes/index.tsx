@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import heroYotei from "@/assets/hero-yotei.jpg";
 import alphardSnow from "@/assets/alphard-snow.jpg";
-import propertySanctuary from "@/assets/property-sanctuary.jpg";
-import propertyAsahidake from "@/assets/property-asahidake.jpg";
-import propertyOtaru from "@/assets/property-otaru.jpg";
+import propertyOriental from "@/assets/property-oriental.jpg";
+import propertyShinka from "@/assets/property-shinka.jpg";
 import seasonWinter from "@/assets/season-winter.jpg";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -81,25 +80,18 @@ function Index() {
 
   const properties = [
     {
-      name: t("property.sanctuary.name"),
-      location: t("property.sanctuary.location"),
+      name: t("property.oriental.name"),
+      location: t("property.oriental.location"),
       season: t("estate.season.year"),
-      image: propertySanctuary,
-      rooms: t("property.sanctuary.rooms"),
+      image: propertyOriental,
+      rooms: t("property.oriental.rooms"),
     },
     {
-      name: t("property.asahidake.name"),
-      location: t("property.asahidake.location"),
-      season: t("estate.season.autumnWinter"),
-      image: propertyAsahidake,
-      rooms: t("property.asahidake.rooms"),
-    },
-    {
-      name: t("property.otaru.name"),
-      location: t("property.otaru.location"),
-      season: t("estate.season.springAutumn"),
-      image: propertyOtaru,
-      rooms: t("property.otaru.rooms"),
+      name: t("property.shinka.name"),
+      location: t("property.shinka.location"),
+      season: t("estate.season.year"),
+      image: propertyShinka,
+      rooms: t("property.shinka.rooms"),
     },
   ];
 
@@ -344,7 +336,7 @@ function Index() {
             </Link>
           </div>
 
-          <div className="grid gap-10 md:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-2">
             {properties.map((p) => (
               <article key={p.name} className="group">
                 <div className="relative aspect-[4/5] overflow-hidden bg-birch/5">
