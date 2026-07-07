@@ -41,8 +41,7 @@ describe("Footer language switcher", () => {
     expect(codes).toContain("zh-hk");
     expect(codes).toContain("zh-tw");
 
-    const labelFor = (code: string) =>
-      LANGUAGES.find((l) => l.code === code)?.label;
+    const labelFor = (code: string) => LANGUAGES.find((l) => l.code === code)?.label;
     expect(labelFor("zh-cn")).toBe("简体中文");
     expect(labelFor("zh-hk")).toBe("繁體中文（香港）");
     expect(labelFor("zh-tw")).toBe("繁體中文（台灣）");

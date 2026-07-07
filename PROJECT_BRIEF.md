@@ -108,7 +108,7 @@ src/
 - 从 ComingSoon 占位 → 完整功能页
 - 房型卡片展示（不含房间数，只显示最多入住人数）
 - 点击「查询空房」→ 自动打开邮件客户端，预填主题
-- 联系邮箱：jone180312@gmail.com（在 stay.tsx 顶部 CONTACT_EMAIL 变量）
+- 联系邮箱：jonesapporo@gmail.com（公司邮箱）
 
 ### 5. 礼宾栏默认值
 - 目的地从「二世古」→「札幌」
@@ -119,7 +119,7 @@ src/
 
 ### 🔴 必须做
 1. **替换图片**：上传 `property-oriental.jpg` 和 `property-shinka.jpg` 真实照片到 `src/assets/`
-2. **确认邮箱**：`stay.tsx` 里的 `jone180312@gmail.com` 是否正确
+2. **确认邮箱**：目前统一为公司邮箱 `jonesapporo@gmail.com`
 3. **测试预订流程**：点「查询空房」按钮，确认邮件客户端打开且内容正确
 
 ### 🟡 建议做

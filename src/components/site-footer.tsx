@@ -14,92 +14,144 @@ export const LANGUAGES = [
 
 export type LanguageCode = (typeof LANGUAGES)[number]["code"];
 
-export function SiteFooter() {
+export function SiteFooter({ variant = "default" }: { variant?: "default" | "dark" }) {
   const t = useT();
   const currentLang = useLang();
+  const isDark = variant === "dark";
 
-  const groups = [
-    {
-      title: t("footer.group.stay"),
-      items: [
-        { label: t("route.hotels"), to: "/hotels" as const },
-        { label: t("route.vacationRentals"), to: "/vacation-rentals" as const },
-      ],
-    },
-    {
-      title: t("footer.group.travel"),
-      items: [
-        { label: t("route.privateCharter"), to: "/private-charter" as const },
-        { label: t("route.airportTransfers"), to: "/airport-transfers" as const },
-      ],
-    },
-    {
-      title: t("footer.group.explore"),
-      items: [
-        { label: t("route.experiences"), to: "/experiences" as const },
-        { label: t("route.skiSchool"), to: "/ski-school" as const },
-      ],
-    },
-    {
-      title: t("footer.group.house"),
-      items: [
-        { label: t("route.ourStory"), to: "/our-story" as const },
-        { label: t("route.reconnect"), to: "/reconnect" as const },
-      ],
-    },
+  const navigation = [
+    { label: "Accommodation", to: "/stay" as const },
+    { label: "Private Transport", to: "/private-charter" as const },
+    { label: "Seasonal Routes", to: "/experiences" as const },
+    { label: "Snow Experiences", to: "/ski-school" as const },
+    { label: "About", to: "/our-story" as const },
+  ];
+
+  const contact = [
+    { label: "Contact", to: "/reconnect" as const },
+    { label: "Reservation", to: "/stay" as const },
   ];
 
   return (
-    <footer className="border-t border-ink/15 bg-birch px-6 pt-24 pb-10 md:px-12">
+    <footer
+      className={`border-t px-6 pt-28 pb-10 md:px-12 md:pt-36 ${
+        isDark ? "border-white/10 bg-[#101210] text-white" : "border-ink/12 bg-white text-ink"
+      }`}
+    >
       <div className="mx-auto max-w-[1600px]">
-        <div className="grid gap-16 lg:grid-cols-[1.2fr_2fr]">
-          <div>
+        <div className="grid gap-20 lg:grid-cols-[1.35fr_0.75fr_0.75fr]">
+          <div className="max-w-xl">
             <div className="flex items-center gap-2.5">
-              <span className="block h-2 w-2 rounded-full bg-ink" />
-              <span className="font-display text-2xl text-ink">
-                Hokkaidō Horizon
+              <span className={`block h-2 w-2 rounded-full ${isDark ? "bg-white" : "bg-ink"}`} />
+              <span className={`font-display text-3xl ${isDark ? "text-white" : "text-ink"}`}>
+                J-ONE Horizon
               </span>
             </div>
-            <p className="mt-6 max-w-sm font-display text-2xl italic leading-snug text-ink/80">
-              {t("footer.tagline")}
+            <p
+              className={`mt-10 max-w-lg font-display text-[clamp(2.7rem,4.8vw,5.6rem)] leading-[0.95] ${
+                isDark ? "text-white/88" : "text-ink"
+              }`}
+            >
+              Hokkaido,
+              <br />
+              don't rush.
             </p>
-            <p className="mt-8 text-xs uppercase tracking-[0.22em] text-moss">
-              {t("footer.regions")}
+            <p className={`mt-10 max-w-md text-base leading-loose ${isDark ? "text-white/58" : "text-ink/62"}`}>
+              A Sapporo-based travel studio connecting places to stay, ways to move, and seasonal routes across Hokkaido.
             </p>
+            <div className={`mt-12 space-y-3 text-sm leading-relaxed ${isDark ? "text-white/52" : "text-ink/60"}`}>
+              <p>J-ONE CO., LTD. / J-ONE株式会社</p>
+              <p>{t("contact.address")}</p>
+              <p>
+                <a href={`mailto:${t("contact.email")}`} className={isDark ? "hover:text-white" : "hover:text-ink"}>
+                  {t("contact.email")}
+                </a>
+                <span className={`mx-2 ${isDark ? "text-white/20" : "text-ink/25"}`}>·</span>
+                <a href={`tel:${t("contact.phone")}`} className={isDark ? "hover:text-white" : "hover:text-ink"}>
+                  {t("contact.phone")}
+                </a>
+              </p>
+              <p>
+                {t("contact.instagram")}
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
-            {groups.map((g) => (
-              <div key={g.title}>
-                <p className="eyebrow mb-5">{g.title}</p>
-                <ul className="space-y-3">
-                  {g.items.map((i) => (
-                    <li key={i.to}>
-                      <Link
-                        to={i.to}
-                        search={(prev: Record<string, unknown>) => prev}
-                        className="text-sm text-ink/80 transition-colors hover:text-ink"
-                      >
-                        {i.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div>
+            <p className={`eyebrow mb-8 ${isDark ? "text-white/42" : ""}`}>Explore</p>
+            <ul className="space-y-5">
+              {navigation.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    search={(prev: Record<string, unknown>) => prev}
+                    className={`font-display text-2xl leading-tight transition-colors ${
+                      isDark ? "text-white/72 hover:text-white" : "text-ink/76 hover:text-ink"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className={`eyebrow mb-8 ${isDark ? "text-white/42" : ""}`}>Contact</p>
+            <ul className="space-y-5">
+              {contact.map((item) => (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    search={(prev: Record<string, unknown>) => prev}
+                    className={`font-display text-2xl leading-tight transition-colors ${
+                      isDark ? "text-white/72 hover:text-white" : "text-ink/76 hover:text-ink"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="https://www.instagram.com/J_ONETRIP"
+                  className={`font-display text-2xl leading-tight transition-colors ${
+                    isDark ? "text-white/72 hover:text-white" : "text-ink/76 hover:text-ink"
+                  }`}
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${t("contact.email")}`}
+                  className={`font-display text-2xl leading-tight transition-colors ${
+                    isDark ? "text-white/72 hover:text-white" : "text-ink/76 hover:text-ink"
+                  }`}
+                >
+                  Email
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-6 border-t border-ink/15 pt-8 md:flex-row md:items-center md:justify-between">
+        <div
+          className={`mt-28 flex flex-col gap-8 border-t pt-8 md:flex-row md:items-center md:justify-between ${
+            isDark ? "border-white/10" : "border-ink/15"
+          }`}
+        >
           <div
-            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink/60"
+            className={`flex flex-wrap items-center gap-x-5 gap-y-2 text-xs ${
+              isDark ? "text-white/45" : "text-ink/60"
+            }`}
             aria-label={t("common.language")}
           >
             {LANGUAGES.map((l, i) => {
               const isActive = l.code === currentLang;
               return (
                 <span key={l.code} className="flex items-center gap-5">
-                  {i !== 0 ? <span className="text-ink/20">·</span> : null}
+                  {i !== 0 ? <span className={isDark ? "text-white/18" : "text-ink/20"}>·</span> : null}
                   <Link
                     to="."
                     search={(prev: Record<string, unknown>) => ({
@@ -109,9 +161,9 @@ export function SiteFooter() {
                     data-testid={`lang-${l.code}`}
                     hrefLang={l.code}
                     aria-current={isActive ? "true" : undefined}
-                    className={`transition-colors hover:text-ink ${
-                      isActive ? "text-ink underline underline-offset-4" : ""
-                    }`}
+                    className={`transition-colors ${
+                      isDark ? "hover:text-white" : "hover:text-ink"
+                    } ${isActive ? `${isDark ? "text-white" : "text-ink"} underline underline-offset-4` : ""}`}
                   >
                     {l.label}
                   </Link>
@@ -119,7 +171,7 @@ export function SiteFooter() {
               );
             })}
           </div>
-          <p className="text-xs uppercase tracking-[0.2em] text-ink/50">
+          <p className={`text-xs uppercase tracking-[0.2em] ${isDark ? "text-white/40" : "text-ink/50"}`}>
             © {new Date().getFullYear()} {t("common.copyright")}
           </p>
         </div>

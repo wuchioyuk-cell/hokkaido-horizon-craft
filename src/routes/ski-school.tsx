@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ComingSoon } from "@/components/coming-soon";
+import { ServicePage } from "@/components/service-page";
 
 export const Route = createFileRoute("/ski-school")({
   head: () => ({ meta: [{ title: "滑雪学校 — Hokkaidō Horizon" }] }),
-  component: () => <ComingSoon slug="skiSchool" />,
+  component: () => <ServicePage slug="skiSchool" />,
 });

@@ -6,7 +6,7 @@
 
 /*
  * The Hokkaido Horizon — Design System
- * Ink Black on Shirakaba Birch, with Silt Stone and Moss Ochre.
+ * Ink Black on Shirakaba Birch, with Silt Stone and Moss Green.
  * Cormorant Garamond display + Plus Jakarta Sans UI.
  */
 
@@ -44,21 +44,22 @@
   --color-moss: var(--moss);
   --color-alpine: var(--alpine);
 
-  --font-display: "Cormorant Garamond", "Noto Serif JP", "Noto Serif TC",
-    "Noto Serif Thai", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", "Noto Sans JP", "Noto Sans TC",
-    "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+  --font-display:
+    "Noto Serif SC", "Noto Serif TC", "Cormorant Garamond", "Noto Serif JP", Georgia, serif;
+  --font-sans:
+    "Plus Jakarta Sans", "Noto Sans JP", "Noto Sans TC", "Noto Sans Thai", "Helvetica Neue", Arial,
+    sans-serif;
 }
 
 :root {
   --radius: 0.25rem;
 
   /* Brand palette translated to oklch */
-  --ink: oklch(0.21 0.005 240);          /* #1A1C1E */
-  --birch: oklch(0.967 0.012 80);         /* #F9F6F0 */
-  --silt: oklch(0.91 0.012 70);           /* #EAE5DC */
-  --moss: oklch(0.595 0.025 75);          /* #8C826E */
-  --alpine: oklch(1 0 0);                 /* #FFFFFF */
+  --ink: oklch(0.19 0.006 150);
+  --birch: oklch(0.955 0.014 83);
+  --silt: oklch(0.885 0.017 78);
+  --moss: oklch(0.49 0.035 125);
+  --alpine: oklch(0.99 0.004 82);
 
   --background: var(--birch);
   --foreground: var(--ink);
@@ -120,17 +121,24 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--color-birch), white 18%),
+      var(--color-birch) 24rem
+    );
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     line-height: 1.1;
   }
 
@@ -204,13 +212,23 @@
 }
 
 @keyframes horizon-rise {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes horizon-fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @utility rise {
@@ -219,4 +237,15 @@
 
 @utility fade-slow {
   animation: horizon-fade 1.6s ease-out both;
+}
+
+@utility reveal {
+  animation: horizon-rise 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation-timeline: view();
+    animation-range: entry 8% cover 34%;
+  }
 }

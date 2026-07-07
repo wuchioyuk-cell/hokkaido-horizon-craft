@@ -77,18 +77,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Hokkaido Horizon Collective offers curated luxury travel experiences in Hokkaido, Japan." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Hokkaido Horizon Collective offers curated luxury travel experiences in Hokkaido, Japan." },
+      {
+        title: "Hokkaido Horizon — Local Hokkaido Travel Studio",
+      },
+      {
+        name: "description",
+        content:
+          "Accommodation, licensed transport, seasonal journeys, and snow experiences arranged together by a local Hokkaido team.",
+      },
+      { name: "author", content: "Hokkaido Horizon" },
+      {
+        property: "og:title",
+        content: "Hokkaido Horizon — Local Hokkaido Travel Studio",
+      },
+      {
+        property: "og:description",
+        content:
+          "Accommodation, private transport, local routes, and snow experiences planned together in Hokkaido.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Hokkaido Horizon Collective offers curated luxury travel experiences in Hokkaido, Japan." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/676e5741-df02-49e2-b4d2-4de86ab12de4/id-preview-a827d332--810e416b-ca96-4e90-8cf0-10d86aa5e2a3.lovable.app-1781236783885.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/676e5741-df02-49e2-b4d2-4de86ab12de4/id-preview-a827d332--810e416b-ca96-4e90-8cf0-10d86aa5e2a3.lovable.app-1781236783885.png" },
+      { name: "twitter:site", content: "Hokkaido Horizon" },
     ],
     links: [
       {
@@ -105,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="zh-Hans">
       <head>
         <HeadContent />
       </head>

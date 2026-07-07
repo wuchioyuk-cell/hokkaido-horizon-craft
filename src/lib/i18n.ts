@@ -1,9 +1,5 @@
 import { useRouterState } from "@tanstack/react-router";
-import {
-  dictionaries,
-  LANG_CODES,
-  type LangCode,
-} from "./i18n-dictionaries";
+import { dictionaries, LANG_CODES, type LangCode } from "./i18n-dictionaries";
 
 export const DEFAULT_LANG: LangCode = "zh-cn";
 
